@@ -52,6 +52,25 @@ const itemsList = document.getElementById('items');
 
 // Append the new li element to the ul element
 itemsList.appendChild(newLi);
+
+//to make third item background color green
+const seconditem=document.querySelector(".list-group-item:nth-child(2)");
+seconditem.style.backgroundColor="green";
+
+//to make third  item invisible
+const thirditem=document.querySelector(".list-group-item:nth-child(3)");
+thirditem.style.display="none"
+
+//to change the font color of second item
+let sec=document.querySelectorAll(".list-group-item")
+sec[1].style.color="white"
+
+//to change background of odd list
+var odad = document.querySelectorAll(".list-group-item:nth-child(odd)");
+for (let j = 0; j < odad.length; j++) {
+  odad[j].style.backgroundColor = "palegreen";
+}
+
      </script> 
 </body>
 </html>
