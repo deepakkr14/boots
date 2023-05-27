@@ -30,7 +30,17 @@
     </ul>
    </div>
   </div>
+ <script>
+  
 
+    const collectio = document.getElementsByClassName("list-group-item");
+    collectio[1].style.backgroundColor = "red";
+    const collections = document.getElementsByClassName("list-group");
+    for(let i =0;i<collections.length;i++){
+      collections[i].style.fontWeight = "bold"
+    }
+
+     </script> 
 </body>
 </html>
 index.html
