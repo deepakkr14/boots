@@ -70,6 +70,56 @@ var odad = document.querySelectorAll(".list-group-item:nth-child(odd)");
 for (let j = 0; j < odad.length; j++) {
   odad[j].style.backgroundColor = "palegreen";
 }
+let par=document.querySelector("#items")
+// console.log(par.parentElement)
+// console.log(par.parentNode)
+
+
+// console.log(par.childNodes)
+// console.log(par.children)
+
+// par.children[1].style.backgroundColor="black";
+// first child
+// console.log(par.firstChild)
+// console.log(par.firstElementChild)
+// par.firstElementChild.style.backgroundColor="yellow"
+// console.log(par.lastElementChild)
+// par.lastElementChild.textContent="hello world"
+// siblings?
+let aah =document.querySelector(".list-group-item")
+console.log(aah.nextSibling)
+console.log(aah.nextElementSibling)
+console.log(par.previousSibling)
+console.log(par.previousElementSibling)
+// par.previousElementSibling.style.backgroundColor="purple"
+// create Element
+var newdiv=document.createElement('div')
+newdiv.className="hellow"
+newdiv.id="hellow1"
+newdiv.setAttribute('title',"hellow div")
+var newnexxtdiv=document.createTextNode("hello new div");
+newdiv.appendChild(newnexxtdiv)
+var container=document.querySelector('.container')
+var h1 =document.querySelector(" #header-title");
+
+// console.log(newnexxtdiv)
+container.insertBefore(newdiv, h1)
+
+// add HEllo word before Item Lister
+var headerTitle = document.querySelector("#header-title");
+    var helloText = document.createTextNode("Hello ");
+    headerTitle.insertBefore(helloText, headerTitle.firstChild)
+
+    // add HEllo word before Item 1
+    var itemList = document.querySelector("#items");
+    var firstItem = itemsList.firstElementChild;
+    var helloText = document.createTextNode("Hello  new");
+    firstItem.insertBefore(helloText, firstItem.firstChild);
+    console.log(itemList)
+    console.log(firstItem)
+    console.log(firstItem.firstChild)
+
+    console.log(helloText)
 
      </script> 
 </body>
