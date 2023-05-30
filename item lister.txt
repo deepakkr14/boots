@@ -15,6 +15,7 @@
     <h2 class="title">Add Items</h2>
     <form id="addForm" class="form-inline mb-3">
       <input type="text" class="form-control mr-2" id="item">
+      <input type="text" class="form-control mr-2" id="desc">
       <input type="submit" class="btn btn-dark" value="Submit">
     </form>
     <h2 class="title">Items</h2>
@@ -28,7 +29,7 @@
 </div>
 
 
-
+<script>
 var form = document.getElementById('addForm');
 var itemList = document.getElementById('items');
 var filter = document.getElementById('filter');
@@ -40,26 +41,42 @@ itemList.addEventListener('click', removeItem);
 // Filter event
 filter.addEventListener('keyup', filterItems);
 
+
+
 // Add item
 function addItem(e){
   e.preventDefault();
 
   // Get input value
   var newItem = document.getElementById('item').value;
-
+var des=document.getElementById('desc').value;
   // Create new li element
   var li = document.createElement('li');
   // Add class
   li.className = 'list-group-item';
   // Add text node with input value
+ 
   li.appendChild(document.createTextNode(newItem));
+//  var combinedText = newItem + ' ' + des;
+// var combinedTextNode = document.createTextNode(combinedText);
+// li.appendChild(combinedTextNode);
 
+ li.appendChild(document.createElement('br'));
+
+  
+  li.appendChild(document.createTextNode(des));
+  
   // Create del button element
   var deleteBtn = document.createElement('button');
 
   // Add classes to del button
   deleteBtn.className = 'btn btn-danger btn-sm float-right delete';
-
+ let editbtn =document.createElement('button')
+ editbtn.className="btn  btn-sm float-right edit"
+  
+ editbtn.appendChild(document.createTextNode('edit'))
+  li.appendChild(editbtn)
+  
   // Append text node
   deleteBtn.appendChild(document.createTextNode('X'));
 
@@ -68,7 +85,13 @@ function addItem(e){
 
   // Append li to list
   itemList.appendChild(li);
+  
+  
+  
 }
+
+
+
 
 // Remove item
 function removeItem(e){
@@ -83,17 +106,33 @@ function removeItem(e){
 
 // Filter Items
 function filterItems(e){
-  // convert text to lowercase
-  var text = e.target.value.toLowerCase();
-  // Get lis
-  var items = itemList.getElementsByTagName('li');
-  // Convert to an array
-  Array.from(items).forEach(function(item){
-    var itemName = item.firstChild.textContent;
-    if(itemName.toLowerCase().indexOf(text) != -1){
+  // // convert text to lowercase
+  // var text = e.target.value.toLowerCase();
+  // // let combined= newItem + ' ' + des;
+  // var items = itemList.getElementsByTagName('li');
+  // var de=itemList.getElementsByTagName('li');
+  // // Convert to an array
+  // Array.from(items).forEach(function(item){
+  //   var itemName = item.firstChild.textContent;
+  //   if(itemName.toLowerCase().indexOf(text) != -1){
+  //     item.style.display = 'block';
+  //   } else {
+  //     item.style.display = 'none';
+  
+  
+   var searchText = e.target.value.toLowerCase();
+  var items = document.getElementById('items').getElementsByTagName('li');
+  
+  Array.from(items).forEach(function(item) {
+    var itemText = item.textContent.toLowerCase();
+    
+    if (itemText.includes(searchText)) {
       item.style.display = 'block';
     } else {
       item.style.display = 'none';
     }
   });
 }
+</script>
+
+
